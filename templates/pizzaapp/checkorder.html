@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 style="color: #2C3E50; background-image: linear-gradient(red, yellow); font-family: 'Georgia', serif; font-style: italic; font-size: 18px; line-height: 22px; margin: 10px 30px 10px 30px; padding: 10px 12px 8px; margin-top: 5px; text-align: center;">Incoming Order Section</h2>
+{% for order in orders %}
+	<div style="margin: 40px;" class="alert alert-warning" role="alert">
+		<p><b>Customer Name:</b> {{order.username}}</p>
+		<p><b>Customer Phone:</b> {{order.phone}}</p>
+		<p><b>Customer Items:</b> {{order.ordereditem}}</p>
+		<p><b>Customer Address:</b> {{order.address}}</p>
+		<p><b>Order Status:</b> {{order.status}}</p>
+		<a href="/accept/{{ order.id }}/" class="btn btn-success">Accept</a>
+		<a href="/reject/{{ order.id }}/" class="btn btn-danger">Reject</a>
+	</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 style="color: #2C3E50; background-image: linear-gradient(red, yellow); font-family: 'Georgia', serif; font-style: italic; font-size: 18px; line-height: 22px; margin: 10px 30px 10px 30px; padding: 10px 12px 8px; margin-top: 5px; text-align: center;">My Order Section</h2>
+{% for order in orders %}
+	<div style="margin: 40px;" class="alert alert-warning" role="alert">
+		<p><b>Name:</b> {{order.username}}</p>
+		<p><b>Phone:</b> {{order.phone}}</p>
+		<p><b>Items:</b> {{order.ordereditem}}</p>
+		<p><b>Address:</b> {{order.address}}</p>
+		<p><b>Status:</b> {{order.status}}</p>
+	</div>
+{% endfor %}
+{% endblock %}

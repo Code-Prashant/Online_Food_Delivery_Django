@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<img class="wave" src="{% static 'img/wave.png' %}">
+	<div class="container">
+		<div class="img">
+			<img src="{% static 'img/bg.png' %}">
+		</div>
+		<div class="login-content">
+			<form method="POST" action="/adminauthenticate/">
+				{% csrf_token %}
+				<img src="{% static 'img/profile.png' %}">
+				<br>
+				<h3 class="title" style="font-family: 'Georgia'">Admin Panel</h3>
+				<br>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<h5>Username</h5>
+           		   		<input type="text" name="username" id="username" class="input"/>
+           		   </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Password</h5>
+           		    	<input type="password" name="password" id="password" class="input" />
+            	   </div>
+            	</div>
+            	<a href="#">Forgot Password?</a>
+            	<input type="submit" name="" value="Log in" class="btn" />
+            </form>
+            {% for message in messages %}
+				<p style="text-align: center;">{{ message }}</p>
+			{% endfor %}
+        </div>
+    </div>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+{% endblock %}
